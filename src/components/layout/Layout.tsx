@@ -1,20 +1,27 @@
 import React from 'react'
 
-export default ()=>{
+interface ILayout {
+  sideBar:React.ReactNode
+  middleBar:React.ReactNode
+  rightBar:React.ReactNode
+}
 
+const Layout:React.FC<ILayout> = ({sideBar,middleBar,rightBar})=>{
 
   return <>
   
   <div className="layout-container">
     <div className="side-bar">
-      123
+      {sideBar}
     </div>
     <div className="middle-bar">
-      456
+      {middleBar}
     </div>
     <div className="right-bar">
-      789
+      {rightBar}
     </div>
   </div>
   </>
 }
+
+export default Layout
