@@ -7,7 +7,7 @@ import RightBar from '@/components/layout/right/RightBar'
 
 export default function IndexPage() {
   return (
-    <div>
+    <div className="index-page">
       <Layout
       sideBar={<SideBar/>}
       middleBar={<MiddleBar/>}

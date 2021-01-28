@@ -2,8 +2,8 @@ import React from 'react'
 import classnames from 'classnames'
 interface IconProps {
   icon:string
-  iconSelected:string
-  selected:boolean
+  iconSelected?:string
+  selected?:boolean
   className?:string
   onClick ?:()=>void
 }
