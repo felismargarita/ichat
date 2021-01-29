@@ -1,18 +1,9 @@
-import avatar2 from '@/assets/avatars/avatar2.jpg'
-import avatar3 from '@/assets/avatars/avatar3.jpg'
-import avatar4 from '@/assets/avatars/avatar4.jpg'
-import avatar5 from '@/assets/avatars/avatar5.jpg'
-import avatar6 from '@/assets/avatars/avatar6.jpg'
-import avatar7 from '@/assets/avatars/avatar7.jpg'
-
 export default [
   {
-    img:avatar2,
     nickname:'老婆',
     msgList:[]
   },
   {
-    img:avatar3,
     nickname:'老板',
     msgList:[
       {
@@ -50,23 +41,22 @@ export default [
     ]
   },
   {
-    img:avatar4,
     nickname:'同事-小鲨鱼',
     msgList:[]
   },
   {
-    img:avatar5,
     nickname:'同事-大明',
     msgList:[]
   },
   {
-    img:avatar6,
     nickname:'朋友-老党',
     msgList:[]
   },
   {
-    img:avatar7,
     nickname:'金牌销售',
-    msgList:[]
+    msgList:[
+      {isMe:false,content:'买茶叶吗?'},
+      {isMe:true,content:'你卖什么茶叶?'},
+    ]
   }
 ]

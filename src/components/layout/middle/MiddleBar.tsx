@@ -1,6 +1,8 @@
 import Search from '@/components/input/Search'
 import FriendEntry from './FriendEntry'
-import friends from '@/data/friends'
+import {getAvatar} from '@/data/avatars'
+import {IMessageState} from '@/models/messages' 
+import {useDispatch,useSelector} from 'umi'
 
 const getRecentMsg = (msgList:Array<any>)=>{
   const length = msgList.length
@@ -11,19 +13,19 @@ const getRecentMsg = (msgList:Array<any>)=>{
   }
 }
 const MiddleBar = ()=>{
-
+  const messages = useSelector((state:{messages:Array<IMessageState>})=>state.messages)
   return (
     <div className="my-middle-bar">
       <Search className="middle-bar-search"/>
       <div className="friend-entry-list">
         {
-          friends.map((friend,index)=>(
+          messages.map((msg,index)=>(
             <FriendEntry
             key={index}
             className="firend-entry"
-            imgSrc={friend.img}
-            nickname={friend.nickname}
-            recentMsg={getRecentMsg(friend.msgList)}
+            imgSrc={getAvatar(msg.nickname)}
+            nickname={msg.nickname}
+            recentMsg={getRecentMsg(msg.msgList)}
             />
           ))
         }

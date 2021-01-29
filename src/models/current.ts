@@ -21,6 +21,7 @@ const CurrentModal:CurrentModalInterface = {
       return {nickname}
     }
   },
+  
 }
 
 export default CurrentModal

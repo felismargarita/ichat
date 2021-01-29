@@ -3,30 +3,32 @@ import Message from './Message'
 import scrollBottom from '@/utils/scrollBottom'
 import {useDispatch,useSelector} from 'umi'
 import {ICurrentState} from '@/models/current' 
-import friends from '@/data/friends'
+import {IMessageState} from '@/models/messages' 
 import avatar1 from '@/assets/avatars/avatar1.jpg'
+import {getAvatar} from '@/data/avatars'
 const MessageBox = ()=>{
-
   const current = useSelector((state:{current:ICurrentState})=>state.current)
-
+  const messages = useSelector((state:{messages:Array<IMessageState>})=>state.messages)
   useEffect(()=>{
     scrollBottom('message-box')
-  },[current])
+  },[current,messages])
 
-  const firend = friends.find(f=>f.nickname === current.nickname)
+  const message = messages.find(f=>f.nickname === current.nickname)
+
+
 
   return (
     <div className="message-box">
       {
-        firend
+        message
         ?
-        firend.msgList.map((message,index)=>(
+        message.msgList.map((msg,index)=>(
           <Message
           key={index}
-          avatarYou={firend.img}
+          avatarYou={getAvatar(current.nickname)}
           avatarMe={avatar1}
-          content={message.content}
-          isMe={message.isMe}
+          content={msg.content}
+          isMe={msg.isMe}
           />
         ))
         :
