@@ -58,5 +58,37 @@ export default [
       {isMe:false,content:'买茶叶吗?'},
       {isMe:true,content:'你卖什么茶叶?'},
     ]
-  }
+  },
+  {
+    nickname:'小李',
+    msgList:[]
+  },
+  {
+    nickname:'安大明',
+    msgList:[]
+  },
+  {
+    nickname:'普普',
+    msgList:[]
+  },
+  {
+    nickname:'陈超',
+    msgList:[]
+  },
+  {
+    nickname:'方园',
+    msgList:[]
+  },
+  {
+    nickname:'符惠惠',
+    msgList:[]
+  },
+  {
+    nickname:'葛家伟',
+    msgList:[]
+  },
+  {
+    nickname:'何润东',
+    msgList:[]
+  },
 ]

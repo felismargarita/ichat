@@ -22,16 +22,13 @@ const MessageModal:MessageModalInterface = {
   state:[],
   reducers:{
     update(state,{nickname,msgList}){
-      return (state || []).map(msg=>{
-        if(msg.nickname === nickname){
-          return {
-            nickname,
-            msgList:[...msgList,{isMe:false,content:randomMessage()}]
-          }
-        }else{
-          return msg
-        }
-      })
+      const others = (state || []).filter(msg=>msg.nickname !== nickname)
+      return [
+        {
+          nickname,
+          msgList:[...msgList,{isMe:false,content:randomMessage()}]
+        },
+        ...others]
     },
     init(state,{messages}){
       return messages
