@@ -1,0 +1,18 @@
+
+
+.info-card-title{
+  background: #fff;
+  width: 200px;
+  padding: 16px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 1px 1px 4px 1px #8c8c8c;
+  .info-card-nickname {
+    font-size: 18px;
+    font-weight: 600;
+    width: 80px;
+  }
+
+  
+}
