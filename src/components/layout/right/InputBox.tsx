@@ -13,7 +13,7 @@ const InputBox = ()=>{
   const [text,setText] = useState('')
 
   const send = ()=>{
-    if(!text){
+    if(!text || !current){
       return
     }
     if(message){
@@ -31,7 +31,16 @@ const InputBox = ()=>{
   return (
     <div className="input-box">
       <InputToolBar/>
-      <textarea className="input-box-input" value={text} onInput={e=>setText(e.currentTarget.value)}/>
+      <textarea 
+      className="input-box-input" 
+      value={text} 
+      onKeyDown={(e:React.KeyboardEvent)=>{
+        if(e.key === 'Enter'){
+          e.preventDefault()
+          send()
+        }
+      }}
+      onInput={e=>setText(e.currentTarget.value)}/>
       <Button className="btn-send" onClick={send}>发送</Button>
     </div>
     

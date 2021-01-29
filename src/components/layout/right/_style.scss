@@ -55,7 +55,7 @@
 .input-box {
   height: 146px;
   background:#fff;
-
+  border-bottom-right-radius: 4px;
   .input-tool-bar {
     height: 20px;
     display:flex;
@@ -69,7 +69,7 @@
   }
 
   .input-box-input {
-    height: 100px;
+    height: 95px;
     width: 100%;
     border:none;
     outline:none;
