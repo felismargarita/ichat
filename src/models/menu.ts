@@ -1,7 +1,7 @@
 import {Action,Effect,Reducer,Subscription} from 'umi'
 
 export interface IMenuState {
-  menu: 'message'|'user'
+  menu: 'message'|'friend'
 }
 
 export interface MenuModalInterface {

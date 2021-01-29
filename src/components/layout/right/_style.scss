@@ -84,3 +84,30 @@
     margin-right: 12px;
   }
 }
+
+.friend-detail {
+  padding-top: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: left;
+  .friend-detail-nickname {
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+    width: 100;
+  }
+  .friend-detail-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #8c8c8c;
+  }
+  .friend-detail-info {
+    color: #000;
+    padding-left: 24px;
+  }
+  .send-button {
+    margin-top: 40px;
+    width: 100px;
+  }
+}

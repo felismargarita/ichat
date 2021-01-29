@@ -23,8 +23,8 @@ export default ()=>{
         className="side-bar-icon" 
         icon={user} 
         iconSelected={userSelected} 
-        selected={menu ==='user'}
-        onClick={()=>dispatch({type:'menu/update',menu:'user'})}
+        selected={menu ==='friend'}
+        onClick={()=>dispatch({type:'menu/update',menu:'friend'})}
         />
     </div>
   )
