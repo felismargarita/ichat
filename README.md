@@ -1,14 +1,14 @@
-# umi project
+# 网页版仿微信聊天
 
-## Getting Started
+## React,umi
 
-Install dependencies,
+安装依赖,
 
 ```bash
 $ yarn
 ```
 
-Start the dev server,
+启动开发环境,
 
 ```bash
 $ yarn start
