@@ -4,25 +4,27 @@ import message from '@/assets/icons/message.svg'
 import messageSelected from '@/assets/icons/messageSelected.svg'
 import user from '@/assets/icons/user.svg'
 import userSelected from '@/assets/icons/userSelected.svg'
+import {useSelector,useDispatch} from 'umi'
+import {IMenuState} from '@/models/menu'
 
 export default ()=>{
-  const [currentSelected,setCurrent] = useState('message')
-
+  const {menu} = useSelector((state:{menu:IMenuState})=>state.menu)
+  const dispatch = useDispatch()
   return (
     <div className="side-tool-bar">
       <Icon 
         className="side-bar-icon" 
         icon={message} 
         iconSelected={messageSelected} 
-        selected={currentSelected ==='message'}
-        onClick={()=>setCurrent('message')}
+        selected={menu ==='message'}
+        onClick={()=>dispatch({type:'menu/update',menu:'message'})}
         />
       <Icon 
         className="side-bar-icon" 
         icon={user} 
         iconSelected={userSelected} 
-        selected={currentSelected === 'user'}
-        onClick={()=>setCurrent('user')}
+        selected={menu ==='user'}
+        onClick={()=>dispatch({type:'menu/update',menu:'user'})}
         />
     </div>
   )

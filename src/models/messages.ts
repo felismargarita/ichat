@@ -42,7 +42,7 @@ const MessageModal:MessageModalInterface = {
       return history.listen(({pathname})=>{
         if(pathname === '/'){
           dispatch({
-            type: 'messages/init',
+            type: 'init',
             messages:friends
           })
         }

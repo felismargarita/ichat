@@ -22,12 +22,14 @@
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
     "@types/classnames": "^2.2.11",
+    "@types/pinyin": "^2.8.2",
     "@umijs/plugin-sass": "^1.1.1",
     "@umijs/preset-react": "1.x",
     "ahooks": "^2.9.4",
     "classnames": "^2.2.6",
     "lodash": "^4.17.20",
     "node-sass": "^5.0.0",
+    "pinyin": "^2.9.1",
     "umi": "^3.3.7"
   },
   "devDependencies": {
