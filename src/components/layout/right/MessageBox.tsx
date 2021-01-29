@@ -1,8 +1,12 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Message from './Message'
 import messages from '@/data/messages'
+import scrollBottom from '@/utils/scrollBottom'
 const MessageBox = ()=>{
 
+  useEffect(()=>{
+    scrollBottom('message-box')
+  },[])
 
   return (
     <div className="message-box">
