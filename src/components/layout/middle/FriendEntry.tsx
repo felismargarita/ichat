@@ -1,6 +1,8 @@
 import React from 'react'
 import Avatar from '@/components/avatar/Avatar'
 import classnames from 'classnames'
+import {useDispatch,useSelector} from 'umi'
+import {ICurrentState} from '@/models/current'
 interface FirendEntryProps {
   imgSrc:string
   nickname:string
@@ -10,10 +12,16 @@ interface FirendEntryProps {
 
 const FirendEntry:React.FC<FirendEntryProps> = ({imgSrc,nickname,recentMsg,className}) => {
 
-  const classes = classnames('friend-entry',className)
+  const dispatch = useDispatch()
+  const current = useSelector((state:{current:ICurrentState})=>state.current)
+  
+
+  const classes = classnames('friend-entry',className,{
+    'friend-entry-selected':current.nickname === nickname
+  })
 
   return (
-    <div className={classes}>
+    <div className={classes} onClick={()=>dispatch({type:'current/update',nickname})}>
       <div className="friend-entry-item friend-entry-avatar">
         <Avatar src={imgSrc}/>
       </div>

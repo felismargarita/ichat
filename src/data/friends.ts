@@ -9,31 +9,64 @@ export default [
   {
     img:avatar2,
     nickname:'老婆',
-    recentMsg:'你刚刚在忙啥?消息到现在才回'
+    msgList:[]
   },
   {
     img:avatar3,
     nickname:'老板',
-    recentMsg:'回头有空来我办公室汇报下这个季度的工作量'
+    msgList:[
+      {
+        isMe:false,
+        content:'容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size'
+      },
+      {
+        isMe:true,
+        content:'说啥呢?'
+      },
+      {
+        isMe:true,
+        content:'新华社北京1月28日电 中共中央政治局1月28日召开会议，审议《中央政治局常委会听取和研究全国人大常委会、国务院、全国政协和《关于2020年中央巡视工作领导小组重点工作情况的报告》。中共中央总书记习近平主持会议。'
+      },
+      {
+        isMe:false,
+        content:'学习中央会议精神,厉害'
+      },
+      {
+        isMe:true,
+        content:'麻烦审批下刚刚提交的流程,谢谢!'
+      },
+      {
+        isMe:true,
+        content:'麻烦审批下刚刚提交的流程,谢谢!'
+      },
+      {
+        isMe:false,
+        content:'批好了'
+      },
+      {
+        isMe:false,
+        content:'回头有空来我办公室汇报下这个季度的工作量'
+      },
+    ]
   },
   {
     img:avatar4,
     nickname:'同事-小鲨鱼',
-    recentMsg:'哥,这个问题怎么搞?完全没头绪啊'
+    msgList:[]
   },
   {
     img:avatar5,
     nickname:'同事-大明',
-    recentMsg:'不客气的'
+    msgList:[]
   },
   {
     img:avatar6,
     nickname:'朋友-老党',
-    recentMsg:'在吗?'
+    msgList:[]
   },
   {
     img:avatar7,
     nickname:'金牌销售',
-    recentMsg:'买茶叶吗?'
+    msgList:[]
   }
 ]

@@ -1,8 +1,16 @@
 import Search from '@/components/input/Search'
 import FriendEntry from './FriendEntry'
 import friends from '@/data/friends'
-const MiddleBar = ()=>{
 
+const getRecentMsg = (msgList:Array<any>)=>{
+  const length = msgList.length
+  if(length){
+    return msgList[length-1].content
+  }else{
+    return ''
+  }
+}
+const MiddleBar = ()=>{
 
   return (
     <div className="my-middle-bar">
@@ -15,7 +23,7 @@ const MiddleBar = ()=>{
             className="firend-entry"
             imgSrc={friend.img}
             nickname={friend.nickname}
-            recentMsg={friend.recentMsg}
+            recentMsg={getRecentMsg(friend.msgList)}
             />
           ))
         }
