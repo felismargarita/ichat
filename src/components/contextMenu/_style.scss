@@ -1,0 +1,21 @@
+.context-menu {
+  position: fixed;
+  text-align: left;
+  font-size: 12px;
+  background: #fff;
+  width: 150px;
+  border-radius: 2px;
+  z-index: 999;
+  box-shadow: 1px 1px 4px 1px #8c8c8c;
+  cursor: pointer;
+  .context-menu-item {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    transition: all 0.3s;
+    padding-left: 4px;
+    &:hover {
+      background:#bfbfbf ;
+      transition: all 0.3s;
+    }
+  }
+}

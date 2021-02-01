@@ -25,6 +25,8 @@ const FriendDetail = ()=>{
       <hr/>
       <Button className="send-button" onClick={()=>{
         dispatch({type:'menu/update',menu:'message'})
+        dispatch({type:'messages/show',nickname:current.nickname})
+        dispatch({type:'messages/top',nickname:current.nickname})
       }}>发消息</Button>
     </div>
   )

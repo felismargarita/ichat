@@ -6,6 +6,9 @@ import {useDispatch,useSelector} from 'umi'
 import {IMenuState} from '@/models/menu'
 import AlphaList from '@/components/alphaList/AlphaList'
 import friends from '@/data/friends'
+import {callContextMenu} from '@/components/contextMenu/ContextMenu'
+import { useEffect, useState } from 'react'
+import {IMouseState} from '@/models/mouse'
 const getRecentMsg = (msgList:Array<any>)=>{
   const length = msgList.length
   if(length){
@@ -17,6 +20,26 @@ const getRecentMsg = (msgList:Array<any>)=>{
 const MiddleBar = ()=>{
   const messages = useSelector((state:{messages:Array<IMessageState>})=>state.messages)
   const {menu} = useSelector((state:{menu:IMenuState})=>state.menu)
+  const [currentContext,setContext] = useState<{nickname:string,close:Function}>()
+  const mouse = useSelector((state:{mouse:IMouseState})=>state.mouse)
+  const dispatch = useDispatch()
+  const openMenu = (nickname:string)=>{
+    currentContext?.close()
+    const close = callContextMenu([
+      {key:'top',onClick:()=>dispatch({type:'messages/top',nickname}),name:'置顶'},
+      {key:'hidden',onClick:()=>dispatch({type:'messages/hidden',nickname}),name:'不显示聊天'},
+    ],mouse)
+    setContext({nickname,close})
+  }
+
+  useEffect(()=>{
+    document.addEventListener('click',()=>{
+      if(currentContext?.close){
+        currentContext?.close()
+      }
+    })
+  },[currentContext])
+
   return (
     <div className="my-middle-bar">
       <Search className="middle-bar-search"/>
@@ -24,13 +47,14 @@ const MiddleBar = ()=>{
         {
           menu === 'message'
           ?
-          messages.map((msg,index)=>(
+          messages.filter(f=>!f.hidden).map((msg,index)=>(
             <FriendEntry
             key={index}
             className="firend-entry"
             imgSrc={getAvatar(msg.nickname)}
             nickname={msg.nickname}
             recentMsg={getRecentMsg(msg.msgList)}
+            onContextMenu={openMenu}
             />
           ))
           :

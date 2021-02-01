@@ -1,5 +1,6 @@
-import React from 'react'
-
+import React,{useEffect} from 'react'
+import { useDispatch } from 'umi'
+import {throttle} from 'lodash'
 interface ILayout {
   sideBar:React.ReactNode
   middleBar:React.ReactNode
@@ -7,6 +8,19 @@ interface ILayout {
 }
 
 const Layout:React.FC<ILayout> = ({sideBar,middleBar,rightBar})=>{
+
+  useEffect(()=>{
+    document.oncontextmenu = ()=>false
+  },[])
+
+  const dispatch = useDispatch()
+  const throttleDispatch = throttle(dispatch,100)
+  useEffect(()=>{
+    document.addEventListener('mousemove',e=>{
+      throttleDispatch({type:'mouse/update',x:e.clientX,y:e.clientY})
+    })
+    return ()=>document.addEventListener('mousemove',()=>false)
+  },[])
 
   return <>
   
