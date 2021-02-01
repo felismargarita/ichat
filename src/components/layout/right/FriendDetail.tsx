@@ -1,23 +1,29 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {getAvatar} from '@/data/avatars'
-import current from '@/models/current'
 import {ICurrentState} from '@/models/current'
 import {useSelector,useDispatch} from 'umi'
 import Avatar from '@/components/avatar/Avatar'
 import Button from '@/components/button/Button'
+import Dialog from '@/components/dialog/Dialog'
+import { set } from 'lodash'
 
 const FriendDetail = ()=>{
   const dispatch = useDispatch()
   const current = useSelector((state:{current:ICurrentState})=>state.current)
+  const [visible,setVisible] = useState(false)
+
   if(!current.nickname){
     return <div></div>
   }
 
   return (
     <div className="friend-detail">
+      <Dialog visible={visible} onClose={()=>setVisible(false)}>
+        <img src={getAvatar(current.nickname)}/>
+      </Dialog>
       <div className="friend-detail-nickname">{current.nickname}</div>
       <div className="friend-detail-avatar">
-        <Avatar src={getAvatar(current.nickname)}/>
+        <Avatar src={getAvatar(current.nickname)} onClick={()=>setVisible(true)}/>
       </div>
       <hr/>
       <div className="friend-detail-text">备注<span className="friend-detail-info">暂无</span></div>
