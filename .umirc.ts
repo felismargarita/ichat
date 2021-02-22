@@ -3,6 +3,8 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  base:'/ichat/',
+  publicPath:'/ichat/',
   dva: {
     immer: true,
     hmr: true,
